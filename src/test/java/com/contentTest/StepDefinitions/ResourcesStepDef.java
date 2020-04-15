@@ -90,21 +90,8 @@ public class ResourcesStepDef {
 
 	    Workbook macWorkbook = null;
 
-	    //Find the file extension by splitting file name in substring  and getting only extension name
-
 	    String fileExtensionName = fileName.substring(fileName.indexOf("."));
-
-	    //Check condition if the file is xlsx file
-
-	   // if(fileExtensionName.equals(".xlsx")){
-
-	    //If it is xlsx file then create object of XSSFWorkbook class
-
-	//macWorkbook = new XSSFWorkbook(inputStream);
-
-	   // }
-
-	    //Check condition if the file is xls file
+   
 
 	    if(fileExtensionName.equals(".xls")){
 
