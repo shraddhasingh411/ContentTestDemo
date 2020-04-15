@@ -1,5 +1,6 @@
 package com.contentTest.StepDefinitions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import org.junit.Assert;
@@ -39,15 +40,21 @@ public class ResourcesStepDef {
 	@When("^User enters \\”(.*)\\” and \\”(.*)\\”$")
 	public void user_enters_username_and_password(String usr, String pwd)
 	{
+	WebElement username =wd.findElement(By.xpath("//input[@class='loginInput']"));
+	username.sendKeys(usr);
+    WebElement password= wd.findElement(By.xpath("//input[@class='loginInput passwordField']"));
+    password.sendKeys(pwd);
 	
-		
+	     	
 	}
 	
 	@And("^User selects SignIn button$")
 	public void User_selects_SignIn_button()
 	{
-		
+		WebElement signIn= wd.findElement(By.xpath("ladda-label"));
+		signIn.click();
 	}
+		
 	
 	@And("^User selects the course name$")
 	public void user_selects_the_course_name(String CourseName)
