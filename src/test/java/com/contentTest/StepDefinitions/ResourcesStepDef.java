@@ -44,8 +44,6 @@ public class ResourcesStepDef {
 	username.sendKeys(usr);
     WebElement password= wd.findElement(By.xpath("//input[@class='loginInput passwordField']"));
     password.sendKeys(pwd);
-	
-	     	
 	}
 	
 	@And("^User selects SignIn button$")
@@ -134,7 +132,10 @@ public class ResourcesStepDef {
 	   @Given("^User has selected Resources tab$")
 	   public void user_has_selected_resources_tab()
 	   {
-		   
+		
+		   WebElement resources= wd.findElement(By.xpath("//a[@title='Resources']"));
+		   resources.click();
+		  
 		   
 	   }
 	   
@@ -142,14 +143,19 @@ public class ResourcesStepDef {
 	   @When("^ User selects Content By Type$")
 	   public void user_selects_Content_By_Type()
 	   {
+		   
+		   WebElement contentByType= wd.findElement(By.xpath("//a[contains(text(),'Content by type')]"));
+		   contentByType.click();
+		   
 	   }
 	   
 	   @Then("^All the resources should appear as in menuscript$")
 	   public void all_the_resources_should_appear_as_in_menuscript()
 	   {
+		  
+		   
 		   
 	   }
 	   
-	   
-				
+	   				
 }
