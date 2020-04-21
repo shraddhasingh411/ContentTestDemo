@@ -4,10 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import org.junit.Assert;
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
+
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 //import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,6 +21,7 @@ import org.testng.annotations.Test;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 
 
@@ -77,9 +82,16 @@ public class ResourcesStepDef {
 	}
 	
 	@Then("^ All the chapters should appear in content$")
-	public void all_the_chapters_should_appear_in_content(String filePath,String fileName,String sheetName) throws IOException	
-	{
+	public void all_the_chapters_should_appear_in_content(DataTable dt) throws IOException
+		{
 		
+		
+		List<String> list= dt.asList(String.class);
+		String filePath= list.get(0);
+		String fileName= list.get(1);
+		String sheetName= list.get(2);
+				
+	
 		File file =    new File(filePath+"\\"+fileName);
 
 	    //Create an object of FileInputStream class to read excel file
